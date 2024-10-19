@@ -18,7 +18,7 @@ export default function LocPermissions() {
       const subscription = await Location.watchPositionAsync(
         {
           accuracy: Location.Accuracy.High,
-          timeInterval: 5s000, // 50 segundos
+          timeInterval: 5000, // 50 segundos
           distanceInterval: 10, // 10 metros
         },
         (newLocation) => {
