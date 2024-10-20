@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 export default function AppNavigation(){
     return (
         <NavigationContainer> 
-            <Stack.Navigator initialRouteName='Alerta'> 
+            <Stack.Navigator initialRouteName='Welcome'>
                 <Stack.Screen name="Map" options={{ headerShown: false }} component={MapComponent} />
                  <Stack.Screen name="LocPermissions" options={{ headerShown: false }} component={LocPermissions} />
                  <Stack.Screen name="Alerta" options={{ headerShown: false }} component={Alerta} />

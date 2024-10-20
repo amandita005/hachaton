@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { SafeAreaView, View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const AdressScreen = ({route, navigation}) => {
     const { nome, telefone, cpf } = route.params;
@@ -11,10 +12,30 @@ const AdressScreen = ({route, navigation}) => {
     const [bairro, setBairro] = useState('');
     const [cidade, setCidade] = useState('');
     const [estado, setEstado] = useState('');  
+
+    const storeData = async (key, value) => {
+      try {
+        await AsyncStorage.setItem(key, JSON.stringify(value));
+      } catch (error) {
+        console.error('Erro ao armazenar dados no AsyncStorage:', error);
+      }
+    };
     
     const sendAddressData = async () => {
         try {
-          const response = await fetch('http://192.168.1.20:3000/usuarios', {
+
+          const userData = {
+            nome,
+            telefone,
+            cpf,
+            cep,
+            rua,
+            numero,
+            bairro,
+            cidade,
+            estado
+          };
+          const response = await fetch('http://192.168.1.56:3000/usuarios', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -31,13 +52,15 @@ const AdressScreen = ({route, navigation}) => {
               estado
             }),
           });
+
+          await storeData('@user_address', userData);
     
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
 
           if(response.ok){
-            navigation.navigate('Teste');
+            navigation.navigate('Alerta');
           }
     
           const data = await response.json();
@@ -45,6 +68,7 @@ const AdressScreen = ({route, navigation}) => {
         } catch (error) {
           console.error('Error:', error);
         }
+        navigation.navigate('Alerta');
       };
 
     return (
@@ -52,7 +76,6 @@ const AdressScreen = ({route, navigation}) => {
         <SafeAreaView style={styles.safeArea}>
             <View>
               <Text style={{color: 'white', fontWeight: 'bold', fontSize: 25, textAlign: 'center'}}>Quase lá...</Text>
-
               <Text style={{color: 'white', marginVertical: 5}}>CEP</Text>
               <TextInput value={cep} onChangeText={setCep} style={{width: 300, height: 40, borderRadius: 5, padding: 10, borderColor: 'white', borderWidth: 1}} />
               <Text style={{color: 'white', marginVertical: 5}}>Rua</Text>

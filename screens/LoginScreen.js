@@ -40,11 +40,12 @@ const AdressScreen = ({route, navigation}) => {
             navigation.navigate('Teste');
           }
     
-          const data = await response.json();
+          const data = await response.json()
           console.log('Response:', data);
         } catch (error) {
           console.error('Error:', error);
         }
+        navigation.navigate('Alerta');
       };
 
     return (
@@ -53,20 +54,12 @@ const AdressScreen = ({route, navigation}) => {
             <View>
               <Text style={{color: 'white', fontWeight: 'bold', fontSize: 25, textAlign: 'center'}}>Quase lá...</Text>
 
-              <Text style={{color: 'white', marginVertical: 5}}>CEP</Text>
+              <Text style={{color: 'white', marginVertical: 5}}>Usuario</Text>
               <TextInput value={cep} onChangeText={setCep} style={{width: 300, height: 40, borderRadius: 5, padding: 10, borderColor: 'white', borderWidth: 1}} />
               <Text style={{color: 'white', marginVertical: 5}}>Rua</Text>
               <TextInput value={rua} onChangeText={setRua} style={{width: 300, height: 40, borderRadius: 5, padding: 10, borderColor: 'white', borderWidth: 1}} />
-              <Text style={{color: 'white', marginVertical: 5}}>Número</Text>
-              <TextInput value={numero} onChangeText={setNumero} style={{width: 300, height: 40, borderRadius: 5, padding: 10, borderColor: 'white', borderWidth: 1}} />
-              <Text style={{color: 'white', marginVertical: 5}}>Bairro</Text>
-              <TextInput value={bairro} onChangeText={setBairro} style={{width: 300, height: 40, borderRadius: 5, padding: 10, borderColor: 'white', borderWidth: 1}} />
-              <Text style={{color: 'white', marginVertical: 5}}>Cidade</Text>
-              <TextInput value={cidade} onChangeText={setCidade} style={{width: 300, height: 40, borderRadius: 5, padding: 10, borderColor: 'white', borderWidth: 1}} />
-              <Text style={{color: 'white', marginVertical: 5}}>Estado</Text>
-              <TextInput value={estado} onChangeText={setEstado} style={{width: 300, height: 40, borderRadius: 5, padding: 10, borderColor: 'white', borderWidth: 1}} />
               <TouchableOpacity onPress={sendAddressData} style={{backgroundColor: '#1F5596', width: 300, height: 40, borderRadius: 5, justifyContent: 'center', alignItems: 'center', marginTop: 10}}>
-                <Text style={{color: 'white', fontWeight: 'bold'}}>Enviar!</Text>
+                <Text style={{color: 'white', fontWeight: 'bold'}}>Enviar!</Text>[]
               </TouchableOpacity>
             </View>
         </SafeAreaView>
