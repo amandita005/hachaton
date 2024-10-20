@@ -7,7 +7,9 @@ import PullUpPanel from "../screens/teste";
 import Initial from "../screens/Initial";
 import Alerta from "../screens/alerta";
 import AdressScreen from "../screens/AdressScreen";
+import Welcome from "../screens/WelcomeScreen";
 const Stack = createNativeStackNavigator();
+
 
 export default function AppNavigation(){
     return (
@@ -18,6 +20,7 @@ export default function AppNavigation(){
                  <Stack.Screen name="Alerta" options={{ headerShown: false }} component={Alerta} />
                  <Stack.Screen name="Initial" options={{ headerShown: false }} component={Initial} />
                  <Stack.Screen name="Adress" options={{ headerShown: false }} component={AdressScreen} />
+                 <Stack.Screen name="Welcome" options={{ headerShown: false }} component={Welcome} />
             </Stack.Navigator>
         </NavigationContainer>
     )
