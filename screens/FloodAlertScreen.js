@@ -55,7 +55,7 @@ const FloodAlertScreen = () => {
     >
       <ScrollView style={{ flex: 1, width: '100%' }}>
         <View style={styles.logoContainer}>
-          <Image source={require('../assets/LOGO.png')} style={styles.logoImage} />
+        
         </View>
 
         {/* Botão de Histórico de Alertas e Filtrar */}
@@ -81,7 +81,6 @@ const FloodAlertScreen = () => {
               <TouchableOpacity key={index} style={styles.optionButton}>
                 <Text style={styles.optionButtonText}>
                 {`Tipo: ${alerta.tipo_alerta}\n${alerta.mensagem}\nCidade: ${alerta.cidade}`}
-               
                 </Text>
               </TouchableOpacity>
             ))

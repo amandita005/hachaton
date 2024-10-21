@@ -34,7 +34,6 @@ const EmitirAlerta = () => {
       style={{ flex: 1, alignItems: "center", justifyContent: "center", padding: 20 }}
     >
       <View style={styles.logoContainer}>
-        <Image source={require('../assets/LOGO.png')} style={styles.logoImage} />
       </View>
       <View style={styles.logoContainer}>
         <Image source={require('../assets/defesa_civil-removebg-preview.png')} style={styles.logoImage2} />
