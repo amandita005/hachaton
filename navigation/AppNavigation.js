@@ -8,13 +8,16 @@ import Initial from "../screens/Initial";
 import AdressScreen from "../screens/AdressScreen";
 import Welcome from "../screens/WelcomeScreen";
 const Stack = createNativeStackNavigator();
-
+import EmitirAlerta from "../screens/EmitirAlerta";
+import FloodAlertScreen from "../screens/FloodAlertScreen";
 
 export default function AppNavigation(){
     return (
         <NavigationContainer> 
             <Stack.Navigator initialRouteName='Welcome'>
-                <Stack.Screen name="Map" options={{ headerShown: false }} component={MapComponent} />
+                 <Stack.Screen name="Map" options={{ headerShown: false }} component={MapComponent} />
+                 <Stack.Screen name="FloodAlert" options={{ headerShown: false }} component={FloodAlertScreen} />
+                 <Stack.Screen name="EmitirAlerta" options={{ headerShown: false }} component={EmitirAlerta} />
                  <Stack.Screen name="LocPermissions" options={{ headerShown: false }} component={LocPermissions} />
                  <Stack.Screen name="Initial" options={{ headerShown: false }} component={Initial} />
                  <Stack.Screen name="Adress" options={{ headerShown: false }} component={AdressScreen} />
