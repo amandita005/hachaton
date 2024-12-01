@@ -7,7 +7,7 @@ exports.registrar = async (req, res) => {
 
         const result = await usuarioModel.registrarUsuario(nome, telefone, cep, numero, bairro, rua, cpf);
         res.status(200).send(result);
-    } catch (err) {
+    } catch (err) {{}
         res.status(500).send('Erro ao registrar usuário');
         console.log(err);
     }
