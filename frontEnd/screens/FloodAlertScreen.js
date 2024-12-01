@@ -58,7 +58,6 @@ const FloodAlertScreen = () => {
         
         </View>
 
-        {/* Botão de Histórico de Alertas e Filtrar */}
         <View style={styles.headerContainer}>
           <TouchableOpacity style={styles.alertButton}>
             <Text style={styles.alertButtonText}>Histórico de Alertas</Text>
@@ -72,7 +71,6 @@ const FloodAlertScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Lista de alertas */}
         <View style={styles.optionsContainer}>
           {loading ? (
             <Text style={styles.loadingText}>Carregando alertas...</Text>
@@ -88,7 +86,6 @@ const FloodAlertScreen = () => {
         </View>
       </ScrollView>
 
-      {/* Modal de filtro */}
       <Modal
       animationType="slide"
       transparent={true}
@@ -108,10 +105,10 @@ const FloodAlertScreen = () => {
             placeholder="Bairro" 
             style={styles.input} 
             placeholderTextColor="#fff"
-            onChangeText={text => setBairro(text)} // Adicione um estado para bairro
+            onChangeText={text => setBairro(text)} 
           />
           <TouchableOpacity 
-            style={styles.filterButton} // Crie um botão para aplicar o filtro
+            style={styles.filterButton} 
             onPress={handleFilter}
           >
             <Text style={styles.filterButtonText}>Filtrar</Text>

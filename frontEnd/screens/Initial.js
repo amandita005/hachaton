@@ -23,11 +23,13 @@ export default function Initial({ route }) {
   const [socorro, setSocorro] = useState(false);
 
   useEffect(() => {
+
     async function fetchData() {
       const dados = await AsyncStorage.getItem("@user_data");
       if (dados) {
         const parsedData = JSON.parse(dados);
         console.log(parsedData);
+        
         setData(parsedData);
         console.log('requisicao')
         const response = await fetch(
